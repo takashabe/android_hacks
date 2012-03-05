@@ -8,10 +8,16 @@
             android:id="@+id/textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Main Activity"/>
+            android:text="Intent Activity"/>
 
-  <Button android:id="@+id/button01"
-    android:text="Button"
+  <Button android:id="@+id/Explicit"
+    android:text="明示的 INTENT"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" />
+
+  <Button android:id="@+id/Implicit"
+    android:text="暗黙的 INTENT"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
 </LinearLayout>

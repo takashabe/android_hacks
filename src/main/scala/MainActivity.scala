@@ -41,5 +41,4 @@ class MainActivity extends Activity with TypedActivity {
       case false => mButton.setText("Enable SubActivity")
     }
   }
-
 }

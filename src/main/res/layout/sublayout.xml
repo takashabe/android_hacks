@@ -5,13 +5,9 @@
        android:layout_height="wrap_content">
 
   <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/textview"
+            android:id="@+id/implicitText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Main Activity"/>
+            android:text="Sub Layout.xml"/>
 
-  <Button android:id="@+id/button01"
-    android:text="Button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
 </LinearLayout>

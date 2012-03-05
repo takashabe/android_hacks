@@ -32,7 +32,9 @@ object AndroidBuild extends Build {
   lazy val main = Project (
     "android_hacks",
     file("."),
-    settings = General.fullAndroidSettings
+    settings = General.fullAndroidSettings ++ Seq (
+      proguardOption in Android := "-dontnote **"
+    )
   )
 
   lazy val tests = Project (
