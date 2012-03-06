@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+  <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hack9"/>
+
+  <!-- <Button android:id="@+id/button01" -->
+    <!-- android:text="Button.org" -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" /> -->
+
+  <Button android:id="@+id/button02"
+    android:text="Button02"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="button02ClickHandler" />
+</LinearLayout>
