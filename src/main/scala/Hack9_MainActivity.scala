@@ -2,7 +2,7 @@ package com.android.android_hacks
 
 import android.app.Activity
 import android.os.Bundle
-import android.widget.Button
+import android.widget.{Button, ImageButton}
 import android.view.View
 import android.view.View.OnClickListener
 
@@ -17,6 +17,9 @@ class Hack9_MainActivity extends TypedActivity {
           // case _ =>
       // }
     // })
+
+    val imgButton01: ImageButton = findView(TR.button10)
+    // imgButton01.setImageResource(R.drawable.icon)
   }
 
   def button02ClickHandler(view: View): Unit = view match {
