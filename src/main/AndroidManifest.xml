@@ -6,7 +6,7 @@
     android:label="@string/app_name"
     android:debuggable="true">
 
-    <activity android:label="@string/app_name" android:name=".Hack9_MainActivity">
+    <activity android:label="@string/app_name" android:name=".Hack10_MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
