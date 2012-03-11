@@ -1,6 +1,6 @@
 package com.android.android_hacks
 
-import android.app.{Activity, AlertDialog}
+import android.app.{Activity, AlertDialog, Dialog}
 import android.os.Bundle
 import android.content.DialogInterface
 import android.widget.{Button, EditText}
@@ -9,6 +9,7 @@ import android.view.View.OnClickListener
 
 class Hack10_MainActivity extends TypedActivity {
   private var mResultText: EditText = null
+  private var mDialog: Dialog = null
 
   override def onCreate(savedInstanceState: Bundle): Unit = {
     super.onCreate(savedInstanceState)
@@ -16,26 +17,18 @@ class Hack10_MainActivity extends TypedActivity {
     val button: Button = findView(TR.AlertDialogButtonOk)
     button.setOnClickListener(new OnClickListener() {
       override def onClick(view: View): Unit = {
-        val DIALOG_ITEM: Array[java.lang.CharSequence] = Array("one", "two", "three", "four")
-        new AlertDialog.Builder(Hack10_MainActivity.this)
-            .setTitle("Alert Dialog Ok")
-            .setItems(DIALOG_ITEM, new DialogInterface.OnClickListener() {
-                override def onClick(dialog: DialogInterface, which: Int): Unit = mResultText.setText(DIALOG_ITEM(which))
-              })
-            // .setMessage("Alert Dialog with OK Button only.")
-            // .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-              // override def onClick(dialog: DialogInterface, which: Int): Unit = mResultText.setText("Alert Dialog [OK] pressed")
-              // })
-            // .setNegativeButton("Negative", new DialogInterface.OnClickListener() {
-                // override def onClick(dialog: DialogInterface, which: Int): Unit = mResultText.setText("Alert Dialog [Negative] pressed")
-              // })
-            // .setNeutralButton("Neutral", new DialogInterface.OnClickListener() {
-                // override def onClick(dialog: DialogInterface, which: Int): Unit = mResultText.setText("Alert Dialog [Neutral] pressed")
-              // })
-              .create()
-              .show()
-            }
-          })
-      mResultText = findView(TR.textResult)
-    }
+        mDialog = new Dialog(Hack10_MainActivity.this)
+        mDialog.setContentView(R.layout.dialog_ok)
+        mDialog.setTitle("Dialog with OK")
+        mDialog.findViewById(R.id.ButtonOK).setOnClickListener(new OnClickListener() {
+          override def onClick(view: View): Unit = {
+            mDialog.dismiss()
+            mResultText.setText("Dialog [OK] pressed")
+          }
+        })
+        mDialog.show
+      }
+    })
+    mResultText = findView(TR.textResult)
+  }
 }
