@@ -1,9 +1,10 @@
 package com.android.android_hacks
 
-import android.app.{Activity, AlertDialog, Dialog, DatePickerDialog}
+import android.app.{Activity, AlertDialog, Dialog, TimePickerDialog}
+import android.app.TimePickerDialog.OnTimeSetListener
 import android.os.Bundle
 import android.content.DialogInterface
-import android.widget.{Button, EditText, DatePicker}
+import android.widget.{Button, EditText, TimePicker}
 import android.view.View
 import android.view.View.OnClickListener
 
@@ -17,18 +18,16 @@ class Hack10_MainActivity extends TypedActivity {
     val button: Button = findView(TR.AlertDialogButtonOk)
     button.setOnClickListener(new OnClickListener() {
       override def onClick(view: View): Unit = {
-        val datePickerDialog: DatePickerDialog =
-          new DatePickerDialog(Hack10_MainActivity.this, new DatePickerDialog.OnDateSetListener() {
-            def onDateSet(view: DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int): Unit =
-              mResultText.setText("%04d/%02d/%02d".format(year, monthOfYear+1, dayOfMonth))
-          }, 2012, 3, 12)
-        datePickerDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
-            override def onClick(dialog: DialogInterface, which: Int): Unit = mResultText.setText("DatePickerDialog Canceled.")
+        val timePickerDialog: TimePickerDialog = new TimePickerDialog(Hack10_MainActivity.this, new OnTimeSetListener() {
+          override def onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int): Unit = mResultText.setText("%02d:%02d".format(hourOfDay, minute))
+        }, 0, 0, true)
+      timePickerDialog.setButton(DialogInterface.BUTTON_NEGATIVE
+        , "Cancel"
+        , new DialogInterface.OnClickListener() {
+          override def onClick(dialog: DialogInterface, which: Int): Unit =
+            mResultText.setText("TimePickerDialog Canceled")
           })
-        datePickerDialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
-            override def onClick(dialog: DialogInterface, which: Int): Unit = mResultText.setText("DatePickerDialog OK.")
-          })
-        datePickerDialog.show()
+        timePickerDialog.show()
       }
     })
     mResultText = findView(TR.textResult)
